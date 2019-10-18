@@ -1,0 +1,31 @@
+package com.datasource.one.service.impl;
+
+import com.datasource.one.dao.two.ITwoUserDao;
+import com.datasource.one.entity.TwoUser;
+import com.datasource.one.service.ITwoUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * 项目名称：springboot-multiple-datasource
+ * 类名称：TwoUserServiceImpl
+ * 类描述：TODO
+ * 创建人：yingx
+ * 创建时间： 2019/10/18
+ * 修改人：yingx
+ * 修改时间： 2019/10/18
+ * 修改备注：
+ */
+@Service
+public class TwoUserServiceImpl implements ITwoUserService {
+
+    @Autowired
+    private ITwoUserDao twoUserDao;
+
+    @Override
+    public List<TwoUser> getAllUser() {
+        return twoUserDao.getAllUser();
+    }
+}
