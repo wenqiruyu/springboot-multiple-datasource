@@ -1,0 +1,15 @@
+server:
+  port: 10001
+
+spring:
+  datasource:
+    one:
+      jdbc-url: jdbc:mysql://localhost:3306/wen?serverTimezone=UTC&characterEncoding=utf8&autoReconnect=true&useSSL=false
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: root
+    two:
+      jdbc-url: jdbc:mysql://localhost:3306/permission?serverTimezone=UTC&characterEncoding=utf8&autoReconnect=true&useSSL=false
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: root
