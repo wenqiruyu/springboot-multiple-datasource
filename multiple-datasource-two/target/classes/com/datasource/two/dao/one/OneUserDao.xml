@@ -6,8 +6,17 @@
         <result column="password" jdbcType="VARCHAR" property="password"/>
     </resultMap>
 
+    <sql id="userList">
+        username, password
+    </sql>
+
     <select id="getAllUser" resultMap="oneUserMap">
         SELECT *
+        FROM tab_users
+    </select>
+
+    <select id="getPageUser" resultMap="oneUserMap">
+        SELECT <include refid="userList" />
         FROM tab_users
     </select>
 </mapper>

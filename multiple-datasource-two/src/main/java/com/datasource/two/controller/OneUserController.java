@@ -1,12 +1,11 @@
 package com.datasource.two.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.datasource.two.entity.OneUser;
 import com.datasource.two.service.IOneUserService;
 import com.datasource.two.utils.ServerResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,5 +31,12 @@ public class OneUserController {
 
         List<OneUser> allUser = oneUserService.getAllUser();
         return ServerResponse.createBySuccess(allUser);
+    }
+
+    @GetMapping("/getAllUser/{page}/{pageSize}")
+    public ServerResponse findAllUser(@PathVariable("page") int page, @PathVariable("pageSize") int pageSize) {
+
+        IPage<OneUser> pageUserData = oneUserService.getPageUserData(new OneUser(), page, pageSize);
+        return ServerResponse.createBySuccess(pageUserData.getRecords());
     }
 }

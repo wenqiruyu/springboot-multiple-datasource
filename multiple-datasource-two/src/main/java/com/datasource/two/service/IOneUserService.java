@@ -1,5 +1,6 @@
 package com.datasource.two.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.datasource.two.entity.OneUser;
 
 import java.util.List;
@@ -17,4 +18,6 @@ import java.util.List;
 public interface IOneUserService {
 
     List<OneUser> getAllUser();
+
+    IPage<OneUser> getPageUserData(OneUser user, int page, int pageSize);
 }

@@ -1,5 +1,6 @@
 package com.datasource.two.dao.one;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.datasource.two.entity.OneUser;
 
 import java.util.List;
@@ -17,4 +18,6 @@ import java.util.List;
 public interface IOneUserDao {
 
     List<OneUser> getAllUser();
+
+    List<OneUser> getPageUser(Page<OneUser> oneUserPage, OneUser oneUser);
 }

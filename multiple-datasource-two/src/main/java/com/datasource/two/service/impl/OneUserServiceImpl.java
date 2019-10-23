@@ -1,5 +1,7 @@
 package com.datasource.two.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.datasource.two.dao.one.IOneUserDao;
 import com.datasource.two.entity.OneUser;
 import com.datasource.two.service.IOneUserService;
@@ -28,5 +30,13 @@ public class OneUserServiceImpl implements IOneUserService {
     public List<OneUser> getAllUser() {
 
         return oneUserDao.getAllUser();
+    }
+
+    @Override
+    public IPage<OneUser> getPageUserData(OneUser user, int page, int pageSize) {
+
+        Page<OneUser> oneUserPage = new Page<>(page, pageSize);
+        oneUserPage.setRecords(oneUserDao.getPageUser(oneUserPage, user));
+        return oneUserPage;
     }
 }
